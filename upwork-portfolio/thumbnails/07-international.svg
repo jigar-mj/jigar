@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
+      .heading { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; letter-spacing: 8px; }
+      .lang { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; letter-spacing: 3px; }
+      .tagline { font-family: 'Montserrat', Arial, sans-serif; font-weight: 300; letter-spacing: 6px; }
+      .footer { font-family: 'Montserrat', Arial, sans-serif; font-weight: 500; letter-spacing: 4px; }
+      .badge { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; letter-spacing: 3px; }
+    ]]></style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#1A2F4D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5C857"/>
+      <stop offset="100%" stop-color="#D49B2E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1120" cy="610" r="200" fill="none" stroke="#F5B947" stroke-width="1.5" opacity="0.18"/>
+  <circle cx="1120" cy="610" r="140" fill="none" stroke="#F5B947" stroke-width="1" opacity="0.12"/>
+  <circle cx="160" cy="110" r="160" fill="none" stroke="#6EC1E4" stroke-width="1" opacity="0.10"/>
+
+  <line x1="120" y1="90" x2="280" y2="90" stroke="#F5B947" stroke-width="3"/>
+  <text x="120" y="135" class="badge" fill="#F5B947" font-size="22">EUROPEAN &amp; MIDDLE EASTERN LANGUAGES</text>
+
+  <text x="640" y="240" class="heading" fill="url(#gold)" font-size="68" text-anchor="middle">GLOBAL VOICES</text>
+
+  <line x1="540" y1="285" x2="740" y2="285" stroke="#F5B947" stroke-width="2" opacity="0.6"/>
+
+  <!-- 5 languages displayed in elegant layout -->
+  <!-- Row 1: 3 languages -->
+  <text x="290" y="400" class="lang" fill="#F5F1E8" font-size="50" text-anchor="middle">FRENCH</text>
+  <text x="640" y="400" class="lang" fill="#F5F1E8" font-size="50" text-anchor="middle">SPANISH</text>
+  <text x="990" y="400" class="lang" fill="#F5F1E8" font-size="50" text-anchor="middle">GREEK</text>
+
+  <circle cx="465" cy="392" r="4" fill="#F5B947"/>
+  <circle cx="815" cy="392" r="4" fill="#F5B947"/>
+
+  <!-- Row 2: 2 languages, centered -->
+  <text x="460" y="500" class="lang" fill="#F5F1E8" font-size="50" text-anchor="middle">POLISH</text>
+  <text x="820" y="500" class="lang" fill="#F5F1E8" font-size="50" text-anchor="middle">ARABIC</text>
+
+  <circle cx="640" cy="492" r="4" fill="#F5B947"/>
+
+  <line x1="540" y1="565" x2="740" y2="565" stroke="#F5B947" stroke-width="2"/>
+  <text x="640" y="620" class="tagline" fill="#F5F1E8" font-size="22" text-anchor="middle" opacity="0.85">VOICE OVER  •  TRANSLATION  •  AI TRAINING DATA</text>
+  <text x="640" y="675" class="footer" fill="#6EC1E4" font-size="18" text-anchor="middle" opacity="0.9">CERTIFIED NATIVE SPEAKERS  •  CULTURALLY ACCURATE</text>
+</svg>

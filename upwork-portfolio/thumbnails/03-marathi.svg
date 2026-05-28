@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+      .title { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; letter-spacing: 4px; }
+      .native { font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 700; }
+      .tagline { font-family: 'Montserrat', Arial, sans-serif; font-weight: 300; letter-spacing: 8px; }
+      .footer { font-family: 'Montserrat', Arial, sans-serif; font-weight: 500; letter-spacing: 4px; }
+      .badge { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; letter-spacing: 3px; }
+    ]]></style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#1A2F4D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5C857"/>
+      <stop offset="100%" stop-color="#D49B2E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1120" cy="610" r="200" fill="none" stroke="#F5B947" stroke-width="1.5" opacity="0.18"/>
+  <circle cx="1120" cy="610" r="140" fill="none" stroke="#F5B947" stroke-width="1" opacity="0.12"/>
+  <circle cx="160" cy="110" r="160" fill="none" stroke="#6EC1E4" stroke-width="1" opacity="0.10"/>
+  <line x1="120" y1="90" x2="280" y2="90" stroke="#F5B947" stroke-width="3"/>
+  <text x="120" y="135" class="badge" fill="#F5B947" font-size="22">PROFESSIONAL VOICE &amp; TRANSLATION</text>
+  <text x="640" y="335" class="title" fill="url(#gold)" font-size="170" text-anchor="middle">MARATHI</text>
+  <text x="640" y="430" class="native" fill="#F5F1E8" font-size="80" text-anchor="middle">मराठी</text>
+  <line x1="540" y1="490" x2="740" y2="490" stroke="#F5B947" stroke-width="2"/>
+  <text x="640" y="555" class="tagline" fill="#F5F1E8" font-size="24" text-anchor="middle" opacity="0.85">VOICE OVER  •  TRANSLATION  •  LOCALIZATION</text>
+  <text x="640" y="650" class="footer" fill="#6EC1E4" font-size="18" text-anchor="middle" opacity="0.9">NATIVE SPEAKERS  •  STUDIO QUALITY  •  FAST DELIVERY</text>
+</svg>

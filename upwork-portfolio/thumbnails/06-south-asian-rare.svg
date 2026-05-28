@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
+      .heading { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; letter-spacing: 8px; }
+      .lang { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; letter-spacing: 3px; }
+      .tagline { font-family: 'Montserrat', Arial, sans-serif; font-weight: 300; letter-spacing: 6px; }
+      .footer { font-family: 'Montserrat', Arial, sans-serif; font-weight: 500; letter-spacing: 4px; }
+      .badge { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; letter-spacing: 3px; }
+    ]]></style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#1A2F4D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5C857"/>
+      <stop offset="100%" stop-color="#D49B2E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1120" cy="610" r="200" fill="none" stroke="#F5B947" stroke-width="1.5" opacity="0.18"/>
+  <circle cx="1120" cy="610" r="140" fill="none" stroke="#F5B947" stroke-width="1" opacity="0.12"/>
+  <circle cx="160" cy="110" r="160" fill="none" stroke="#6EC1E4" stroke-width="1" opacity="0.10"/>
+
+  <line x1="120" y1="90" x2="280" y2="90" stroke="#F5B947" stroke-width="3"/>
+  <text x="120" y="135" class="badge" fill="#F5B947" font-size="22">RARE LANGUAGE COVERAGE  •  HARD-TO-FIND NATIVES</text>
+
+  <text x="640" y="220" class="heading" fill="url(#gold)" font-size="64" text-anchor="middle">SOUTH ASIAN VOICES</text>
+
+  <line x1="540" y1="260" x2="740" y2="260" stroke="#F5B947" stroke-width="2" opacity="0.6"/>
+
+  <!-- Languages grid - 7 languages in 2 rows -->
+  <!-- Row 1: 4 languages -->
+  <text x="220" y="370" class="lang" fill="#F5F1E8" font-size="44" text-anchor="middle">MANIPURI</text>
+  <text x="500" y="370" class="lang" fill="#F5F1E8" font-size="44" text-anchor="middle">PASHTO</text>
+  <text x="780" y="370" class="lang" fill="#F5F1E8" font-size="44" text-anchor="middle">HINDKO</text>
+  <text x="1060" y="370" class="lang" fill="#F5F1E8" font-size="44" text-anchor="middle">SERAIKI</text>
+
+  <!-- Decorative dots -->
+  <circle cx="360" cy="362" r="3" fill="#F5B947"/>
+  <circle cx="640" cy="362" r="3" fill="#F5B947"/>
+  <circle cx="920" cy="362" r="3" fill="#F5B947"/>
+
+  <!-- Row 2: 3 languages -->
+  <text x="320" y="465" class="lang" fill="#F5F1E8" font-size="44" text-anchor="middle">KANNADA</text>
+  <text x="640" y="465" class="lang" fill="#F5F1E8" font-size="44" text-anchor="middle">MALAYALAM</text>
+  <text x="960" y="465" class="lang" fill="#F5F1E8" font-size="44" text-anchor="middle">URDU</text>
+
+  <!-- Decorative dots -->
+  <circle cx="480" cy="457" r="3" fill="#F5B947"/>
+  <circle cx="800" cy="457" r="3" fill="#F5B947"/>
+
+  <line x1="540" y1="540" x2="740" y2="540" stroke="#F5B947" stroke-width="2"/>
+  <text x="640" y="600" class="tagline" fill="#F5F1E8" font-size="22" text-anchor="middle" opacity="0.85">VOICE OVER  •  TRANSLATION  •  AI TRAINING DATA</text>
+  <text x="640" y="660" class="footer" fill="#6EC1E4" font-size="18" text-anchor="middle" opacity="0.9">CERTIFIED NATIVE SPEAKERS  •  CULTURALLY ACCURATE</text>
+</svg>
