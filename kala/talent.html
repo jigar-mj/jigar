@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Specialists — KALA Talent Network</title>
+  <meta name="description" content="A curated, verified network of native-speaker specialists — linguists, voice artists, translators and AI-data experts across 40+ languages, with experience from leading global teams." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <a href="index.html#home" class="brand">
+      <span class="brand-mark">K</span>
+      <span class="brand-text">KALA</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="talent.html">Specialists</a>
+      <a href="index.html#why">Why KALA</a>
+      <a href="index.html#request" class="nav-cta">Request a Quote</a>
+    </nav>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Talent hero -->
+  <section class="t-hero">
+    <div class="t-hero-inner reveal in">
+      <span class="eyebrow">कला &nbsp;•&nbsp; Our Specialists</span>
+      <h1 class="t-hero-title">
+        The people behind <span class="grad">every project.</span>
+      </h1>
+      <p class="t-hero-sub">
+        A curated network of verified native speakers, linguists, voice artists and
+        AI-data specialists. Profiles are kept <strong>anonymous for privacy</strong> —
+        you see the skills and experience, we handle the introductions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Company experience strip -->
+  <section class="exp-strip">
+    <p class="exp-label">Our specialists bring hands-on experience from teams such as</p>
+    <div class="exp-marquee" aria-hidden="true">
+      <div class="exp-track" id="expTrack"></div>
+    </div>
+    <p class="exp-note">Logos and names shown reflect specialists' past professional experience and do not imply partnership or endorsement.</p>
+  </section>
+
+  <!-- Controls -->
+  <section class="section t-section">
+    <div class="t-controls reveal in">
+      <div class="t-filters" id="talentFilters">
+        <button class="t-filter active" data-cat="all">All</button>
+        <button class="t-filter" data-cat="ai">AI &amp; Data</button>
+        <button class="t-filter" data-cat="translation">Translators</button>
+        <button class="t-filter" data-cat="voice">Voice &amp; Media</button>
+        <button class="t-filter" data-cat="tech">Tech</button>
+        <button class="t-filter" data-cat="rare">Rare Languages</button>
+      </div>
+      <div class="t-searchwrap">
+        <input type="text" id="talentSearch" placeholder="Search language or skill… e.g. Tamil, RLHF, voice-over" />
+      </div>
+    </div>
+
+    <p class="t-resultline"><b id="talentCount">58</b> specialists in the network</p>
+
+    <div class="t-grid" id="talentGrid"></div>
+
+    <p class="t-empty" id="talentEmpty" hidden>No specialists match that search — try a different language or skill.</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="band reveal in" style="margin-bottom:80px;">
+    <h2>Need a specific skill or language? <span class="grad">We'll match you.</span></h2>
+    <p>
+      Tell us what your project needs — a single native voice or a full multilingual team.
+      We connect you with the right specialist from our network.
+    </p>
+    <a href="index.html#request" class="btn btn-primary">Send Your Requirement →</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <span class="brand-mark">K</span>
+      <span class="brand-text">KALA</span>
+    </div>
+    <p>The Art of Language &amp; Voice — a global native-speaker network.</p>
+    <p class="copy">© <span id="yr"></span> KALA. All rights reserved.</p>
+  </footer>
+
+  <script src="talent.js"></script>
+</body>
+</html>
