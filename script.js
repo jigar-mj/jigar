@@ -170,41 +170,8 @@ function openModal(index) {
     document.getElementById('modalCategory').textContent = getCategoryLabel(lang.category);
     document.getElementById('modalSpeakerInfo').textContent = lang.speaker || 'Native speaker available. Contact for details.';
     
-    // Audio: priority 1 = admin-uploaded (this device only),
-    // priority 2 = MP3 file in the repo "audio/<slug>.mp3" (visible to ALL clients)
-    const audioPlayer = document.getElementById('audioPlayer');
-    const noAudioMsg = document.getElementById('noAudioMsg');
-
-    // Reset state
-    audioPlayer.pause();
-    audioPlayer.style.display = 'none';
-    noAudioMsg.style.display = 'block';
-
-    if (lang.audio) {
-        // Admin-uploaded sample stored locally
-        audioPlayer.src = lang.audio;
-        audioPlayer.style.display = 'block';
-        noAudioMsg.style.display = 'none';
-    } else {
-        // Try to find a sample committed to the repo
-        const repoAudioPath = `audio/${slugify(lang.name)}.mp3`;
-        noAudioMsg.textContent = 'Checking for voice sample\u2026';
-
-        const probe = new Audio();
-        probe.src = repoAudioPath;
-
-        probe.addEventListener('loadedmetadata', () => {
-            audioPlayer.src = repoAudioPath;
-            audioPlayer.style.display = 'block';
-            noAudioMsg.style.display = 'none';
-        });
-
-        probe.addEventListener('error', () => {
-            audioPlayer.style.display = 'none';
-            noAudioMsg.textContent = 'Voice sample available on request. Contact us for a demo.';
-            noAudioMsg.style.display = 'block';
-        });
-    }
+    // Load voice samples (supports MULTIPLE speakers per language)
+    loadSpeakerSamples(lang);
     
     // Services
     const servicesList = document.getElementById('modalServices');
@@ -214,13 +181,104 @@ function openModal(index) {
     document.body.style.overflow = 'hidden';
 }
 
+// Maximum numbered speaker files to look for per language
+const MAX_SPEAKERS = 8;
+
+// Looks for voice samples in the repo and shows a player for each one found.
+// Naming convention (all in the "audio/" folder):
+//   Single speaker:    audio/gujarati.mp3
+//   Multiple speakers: audio/gujarati-1.mp3, audio/gujarati-2.mp3, ...
+// Files that don't exist are simply skipped. If none exist, an
+// "available on request" message is shown.
+function loadSpeakerSamples(lang) {
+    const container = document.getElementById('audioPlayerContainer');
+    container.innerHTML = '<p class="no-audio-msg" id="noAudioMsg">Checking for voice samples\u2026</p>';
+
+    const slug = slugify(lang.name);
+
+    // Build the list of candidate file paths (base + numbered)
+    const candidates = [`audio/${slug}.mp3`];
+    for (let i = 1; i <= MAX_SPEAKERS; i++) {
+        candidates.push(`audio/${slug}-${i}.mp3`);
+    }
+
+    const results = new Array(candidates.length).fill(null);
+    let pending = candidates.length;
+    let done = false;
+
+    function finalize() {
+        if (done) return;
+        done = true;
+        renderPlayers(container, results.filter(Boolean), lang);
+    }
+
+    candidates.forEach((src, i) => {
+        const probe = new Audio();
+        probe.preload = 'metadata';
+        probe.addEventListener('loadedmetadata', () => {
+            results[i] = src;
+            pending--;
+            if (pending <= 0) finalize();
+        });
+        probe.addEventListener('error', () => {
+            pending--;
+            if (pending <= 0) finalize();
+        });
+        probe.src = src;
+    });
+
+    // Safety net in case a probe never resolves
+    setTimeout(finalize, 4000);
+}
+
+function renderPlayers(container, foundSamples, lang) {
+    container.innerHTML = '';
+
+    // Admin-uploaded sample (this device only) shown first, if present
+    if (lang.audio) {
+        appendPlayer(container, 'Your upload (preview on this device)', lang.audio);
+    }
+
+    if (foundSamples.length === 0 && !lang.audio) {
+        container.innerHTML =
+            '<p class="no-audio-msg">Voice sample available on request. Contact us for a demo.</p>';
+        return;
+    }
+
+    foundSamples.forEach((src, idx) => {
+        const label = foundSamples.length > 1 ? `Speaker ${idx + 1}` : 'Voice Sample';
+        appendPlayer(container, label, src);
+    });
+}
+
+function appendPlayer(container, label, src) {
+    const wrap = document.createElement('div');
+    wrap.className = 'speaker-sample';
+
+    const labelEl = document.createElement('div');
+    labelEl.className = 'speaker-sample-label';
+    labelEl.textContent = label;
+
+    const audio = document.createElement('audio');
+    audio.controls = true;
+    audio.preload = 'none';
+    audio.src = src;
+
+    wrap.appendChild(labelEl);
+    wrap.appendChild(audio);
+    container.appendChild(wrap);
+}
+
 function closeModal() {
     const modal = document.getElementById('audioModal');
-    const audioPlayer = document.getElementById('audioPlayer');
-    
+
     modal.classList.remove('active');
-    audioPlayer.pause();
-    audioPlayer.src = '';
+
+    // Pause every audio player inside the modal (there can be several)
+    document.querySelectorAll('#audioPlayerContainer audio').forEach((a) => {
+        a.pause();
+    });
+
     document.body.style.overflow = '';
 }
 
