@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Speaker Voice Network | 30+ Languages</title>
+    <meta name="description" content="Professional native speaker network offering voice-over, translation, and AI training data in 30+ languages including rare tongues like Rohingya, Wolof, Pashto, and more.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Native Voices. Global Reach.</h1>
+            <p class="hero-subtitle">A trusted network of 50+ verified native speakers across 30+ languages — from rare tongues to major world languages.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Native Speakers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">30+</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Job Success</span>
+                </div>
+            </div>
+            <a href="#languages" class="cta-btn">Explore Voice Samples</a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#127908;</div>
+                    <h3>Voice-Over & Recording</h3>
+                    <p>Native voice recordings for TTS, ASR, AI speech datasets, IVR, audiobooks, commercials, and dubbing.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#127760;</div>
+                    <h3>Translation & Localization</h3>
+                    <p>Native-level translation, MTPE, subtitling, and cultural localization across 30+ language pairs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#129302;</div>
+                    <h3>AI Training Data</h3>
+                    <p>Prompt creation, LLM evaluation, RLHF, annotation, labeling, and quality rating by native experts.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128269;</div>
+                    <h3>Rare Language Specialists</h3>
+                    <p>Hard-to-find languages like Rohingya, Wolof, Pashto, Hindko, Seraiki that most agencies can't cover.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="languages" id="languages">
+        <div class="container">
+            <h2 class="section-title">Voice Samples by Language</h2>
+            <p class="section-desc">Click any language to listen to native speaker demos. Voice samples available on request for your specific project needs.</p>
+            
+            <!-- Category Filter -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All Languages</button>
+                <button class="filter-btn" data-filter="rare">Rare & Unique</button>
+                <button class="filter-btn" data-filter="indian">Indian Regional</button>
+                <button class="filter-btn" data-filter="european">European</button>
+                <button class="filter-btn" data-filter="asian">Asian & African</button>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="text" id="languageSearch" placeholder="Search a language..." autocomplete="off">
+            </div>
+
+            <!-- Language Grid -->
+            <div class="language-grid" id="languageGrid">
+                <!-- Languages will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Player Modal -->
+    <div class="modal" id="audioModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <h3 id="modalLanguage">Language Name</h3>
+                <span class="modal-badge" id="modalCategory">Category</span>
+            </div>
+            <div class="modal-body">
+                <div class="speaker-info">
+                    <p id="modalSpeakerInfo">Native speaker details</p>
+                </div>
+                <div class="audio-player" id="audioPlayerContainer">
+                    <p class="no-audio-msg" id="noAudioMsg">Voice sample available on request. Contact us for a demo.</p>
+                    <audio id="audioPlayer" controls style="display:none;">
+                        Your browser does not support audio.
+                    </audio>
+                </div>
+                <div class="modal-services">
+                    <h4>Available Services:</h4>
+                    <ul id="modalServices">
+                        <li>Voice-Over Recording</li>
+                        <li>Translation</li>
+                        <li>AI Training Data</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#contact" class="cta-btn" onclick="closeModal()">Request Full Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Section (Admin Only - Hidden by default, toggle with password) -->
+    <section class="upload-section" id="uploadSection">
+        <div class="container">
+            <h2 class="section-title">Manage Voice Samples</h2>
+            <div class="admin-toggle">
+                <button class="admin-btn" id="adminToggle">&#128274; Admin Panel</button>
+            </div>
+            <div class="admin-panel" id="adminPanel" style="display:none;">
+                <div class="upload-form">
+                    <h3>Upload New Voice Sample</h3>
+                    <div class="form-group">
+                        <label>Language Name *</label>
+                        <input type="text" id="uploadLanguage" placeholder="e.g., Rohingya, Burmese, Wolof...">
+                    </div>
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select id="uploadCategory">
+                            <option value="rare">Rare & Unique</option>
+                            <option value="indian">Indian Regional</option>
+                            <option value="european">European</option>
+                            <option value="asian">Asian & African</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Speaker Description</label>
+                        <input type="text" id="uploadSpeaker" placeholder="e.g., Native female, 5+ years experience">
+                    </div>
+                    <div class="form-group">
+                        <label>Audio File (MP3/WAV)</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <p>&#128190; Drag & drop audio file here, or click to browse</p>
+                            <input type="file" id="audioFileInput" accept="audio/*" style="display:none;">
+                        </div>
+                        <p class="file-name" id="fileName"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Services Available</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" value="Voice-Over" checked> Voice-Over</label>
+                            <label><input type="checkbox" value="Translation" checked> Translation</label>
+                            <label><input type="checkbox" value="AI Training Data"> AI Training Data</label>
+                            <label><input type="checkbox" value="Transcription"> Transcription</label>
+                            <label><input type="checkbox" value="Dubbing"> Dubbing</label>
+                            <label><input type="checkbox" value="Subtitling"> Subtitling</label>
+                        </div>
+                    </div>
+                    <button class="submit-btn" id="submitUpload">Add Language</button>
+                </div>
+
+                <!-- Manage Existing -->
+                <div class="manage-list">
+                    <h3>Existing Languages</h3>
+                    <div id="manageList"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-desc">Need native voice recordings, translation, or AI training data? Send me a message with your project details.</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">&#128233;</div>
+                    <h3>Upwork</h3>
+                    <p>100% Job Success Score</p>
+                    <a href="#" class="contact-link">Message on Upwork</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">&#128172;</div>
+                    <h3>Direct Contact</h3>
+                    <p>Quick response within 4-8 hours</p>
+                    <a href="#" class="contact-link">Send Message</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">&#127911;</div>
+                    <h3>Custom Demo</h3>
+                    <p>Request voice samples for your project</p>
+                    <a href="#" class="contact-link">Request Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Native Voice Network</h3>
+                    <p>50+ verified native speakers. 30+ languages. One reliable point of contact.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#services">Services</a>
+                    <a href="#languages">Languages</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-languages">
+                    <h4>Featured Languages</h4>
+                    <p>Rohingya, Burmese, Wolof, Pashto, Hindko, Seraiki, Greek, Hungarian, Persian, Russian, German + all Indian regional languages</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Native Voice Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
