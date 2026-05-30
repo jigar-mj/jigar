@@ -460,6 +460,27 @@ body {
     border-radius: 8px;
 }
 
+/* Individual speaker sample (supports multiple per language) */
+.speaker-sample {
+    margin: 0 0 16px 0;
+}
+
+.speaker-sample:last-child {
+    margin-bottom: 0;
+}
+
+.speaker-sample-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.speaker-sample audio {
+    width: 100%;
+    border-radius: 8px;
+}
+
 .no-audio-msg {
     text-align: center;
     color: var(--gray-500);
