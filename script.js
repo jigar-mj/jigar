@@ -147,6 +147,17 @@ function getCategoryLabel(category) {
     return labels[category] || category;
 }
 
+// Convert a language name to a file-friendly slug.
+// e.g. "Persian (Farsi)" -> "persian-farsi"
+// To add a playable sample, upload an MP3 to the "audio/" folder
+// named with this slug, e.g. audio/rohingya.mp3
+function slugify(name) {
+    return name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
 // ============================================
 // MODAL
 // ============================================
@@ -159,17 +170,40 @@ function openModal(index) {
     document.getElementById('modalCategory').textContent = getCategoryLabel(lang.category);
     document.getElementById('modalSpeakerInfo').textContent = lang.speaker || 'Native speaker available. Contact for details.';
     
-    // Audio
+    // Audio: priority 1 = admin-uploaded (this device only),
+    // priority 2 = MP3 file in the repo "audio/<slug>.mp3" (visible to ALL clients)
     const audioPlayer = document.getElementById('audioPlayer');
     const noAudioMsg = document.getElementById('noAudioMsg');
-    
+
+    // Reset state
+    audioPlayer.pause();
+    audioPlayer.style.display = 'none';
+    noAudioMsg.style.display = 'block';
+
     if (lang.audio) {
+        // Admin-uploaded sample stored locally
         audioPlayer.src = lang.audio;
         audioPlayer.style.display = 'block';
         noAudioMsg.style.display = 'none';
     } else {
-        audioPlayer.style.display = 'none';
-        noAudioMsg.style.display = 'block';
+        // Try to find a sample committed to the repo
+        const repoAudioPath = `audio/${slugify(lang.name)}.mp3`;
+        noAudioMsg.textContent = 'Checking for voice sample\u2026';
+
+        const probe = new Audio();
+        probe.src = repoAudioPath;
+
+        probe.addEventListener('loadedmetadata', () => {
+            audioPlayer.src = repoAudioPath;
+            audioPlayer.style.display = 'block';
+            noAudioMsg.style.display = 'none';
+        });
+
+        probe.addEventListener('error', () => {
+            audioPlayer.style.display = 'none';
+            noAudioMsg.textContent = 'Voice sample available on request. Contact us for a demo.';
+            noAudioMsg.style.display = 'block';
+        });
     }
     
     // Services
